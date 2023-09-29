@@ -5,6 +5,7 @@ gem 'bootsnap', require: false
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'pg'
+gem 'devise'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.8'
 gem 'sprockets-rails'
