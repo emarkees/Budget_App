@@ -1,14 +1,36 @@
-<p style="color: green"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Categories</h1>
+    </div>
+    
+    <%= form_tag(destroy_user_session_path, method: :delete) do %>
+      <%= submit_tag('Log Off', class: 'btn btn-danger' ) %>
+    <% end %>
+  
+  </div>
+</div>
 
-<h1>Categories</h1>
-
-<div id="categories">
-  <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <% @categories.each do |category| %>
+      <div class="col-md-4 mb-4">
+        <div class="category-item p-3">
+          <%= link_to category_transactions_path(category), class: 'category-link' do %>
+            <div class="row">
+              <div class="col-md-2 w-3">
+                <p><i class="fas fa-folder"></i></p>
+              </div>
+              <div class="col-md-auto">
+                <h2><%= category.name %></h2>
+                <p><%= category.created_at.strftime('%d, %b %Y') %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <%= link_to "New category", new_category_path %>
